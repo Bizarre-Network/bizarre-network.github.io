@@ -1,7 +1,7 @@
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 
-import styles from "./error.module.css";
+// import styles from "./error.module.css";
 
 function statusToMessage(status: number, internal: boolean, defaultMsg: string): string {
   if (internal) {
@@ -26,7 +26,7 @@ interface ErrorData {
 }
 
 export default function ErrorBoundary() {
-  const error = null;
+  // const error = null;
 
   const errorData: ErrorData = {
     message: "",

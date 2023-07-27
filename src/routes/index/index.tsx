@@ -1,4 +1,4 @@
-import { For, createEffect, onMount } from "solid-js";
+import { For, onMount } from "solid-js";
 import styles from "./index.module.css";
 
 const cards = [
@@ -35,15 +35,6 @@ const cards = [
     text: "The Server Host Is NA which we find is the best Location for are Group of Players.",
   },
 ];
-
-interface MousePos {
-  x: number;
-  y: number;
-}
-
-interface MousePositions {
-  [key: number]: MousePos;
-}
 
 export default function Index() {
   const cardsRefs = new Array(cards.length).fill(null);
