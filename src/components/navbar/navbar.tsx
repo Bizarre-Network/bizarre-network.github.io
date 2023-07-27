@@ -2,6 +2,8 @@ import { A, useLocation } from "@solidjs/router";
 import styles from "./navbar.module.css";
 import { createEffect, createSignal } from "solid-js";
 
+import logo128 from "/assets/images/logo_trans128.png";
+
 export default function Navbar() {
   const [open, setOpen] = createSignal(false);
   const location = useLocation();
@@ -16,7 +18,7 @@ export default function Navbar() {
         <ul class={styles.navbar__list}>
           <li class={`${styles.navbar__item} ${styles.logo}`}>
             <A href="/" class={styles.navbar__link}>
-              <img src="/assets/images/logo_trans128.png" alt="Bizarre Network logo" width={42} height={42} />
+              <img src={logo128} alt="Bizarre Network logo" width={42} height={42} />
             </A>
           </li>
           <li class={styles.navbar__item}>
@@ -46,7 +48,7 @@ export default function Navbar() {
           </li>
           <li class={`${styles.navbar__item} ${styles.logo}`}>
             <A href="/" class={styles.navbar__link}>
-              <img src="/assets/images/logo_trans128.png" alt="Bizarre Network logo" width={42} height={42} />
+              <img src={logo128} alt="Bizarre Network logo" width={42} height={42} />
             </A>
           </li>
           <li class={`${styles.navbar__item} ${styles.navbar__button}`}>
