@@ -2,7 +2,7 @@ name: Site Preview
 
 on:
   push:
-    branches: [main]
+    branches: [deployment]
   workflow_dispatch:
 
 jobs:
