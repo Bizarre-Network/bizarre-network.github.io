@@ -1,10 +1,12 @@
 import { For, onMount } from "solid-js";
 import styles from "./index.module.css";
 
+import joinBanner from "/assets/images/join_banner.png";
+
 const cards = [
   {
     image: {
-      url: "/assets/images/cube.png",
+      url: await import("/assets/images/cube.png"),
       alt: "Cube",
     },
     title: "Fun SMP-style",
@@ -12,7 +14,7 @@ const cards = [
   },
   {
     image: {
-      url: "/assets/images/hands.png",
+      url: await import("/assets/images/hands.png"),
       alt: "Handshake",
     },
     title: "New players welcome",
@@ -20,7 +22,7 @@ const cards = [
   },
   {
     image: {
-      url: "/assets/images/hammer.png",
+      url: await import("/assets/images/hammer.png"),
       alt: "Ban hammer",
     },
     title: "Active moderation",
@@ -28,7 +30,7 @@ const cards = [
   },
   {
     image: {
-      url: "/assets/images/na.png",
+      url: await import("/assets/images/na.png"),
       alt: "North America",
     },
     title: "North America",
@@ -81,7 +83,7 @@ export default function Index() {
               {(card, i) => (
                 <li class={styles.about__item} ref={cardsRefs[i()]}>
                   <div class={styles.about__content}>
-                    <img src={card.image.url} alt={card.image.alt} class={styles.about__img} />
+                    <img src={card.image.url.default} alt={card.image.alt} class={styles.about__img} />
 
                     <h3 class={styles.about__title}>{card.title}</h3>
                     <p class={"main__paragraph"}>{card.text}</p>
@@ -92,7 +94,7 @@ export default function Index() {
           </ul>
         </section>
         <section class={`${"main__section"} ${styles.joinCta}`}>
-          <img src="/assets/images/join_banner.png" alt="Bizarre join banner" class={styles.joinCta__img} />
+          <img src={joinBanner} alt="Bizarre join banner" class={styles.joinCta__img} />
 
           <a href="https://discord.gg/bizarresmp" target="_blank" rel="noopener noreferrer">
             <button class={styles.joinCta__btn}>Join</button>
