@@ -6,7 +6,7 @@ import joinBanner from "/assets/images/join_banner.png";
 const cards = [
   {
     image: {
-      url: await import("/assets/images/cube.png"),
+      url: new URL("/assets/images/cube.png", import.meta.url).href,
       alt: "Cube",
     },
     title: "Fun SMP-style",
@@ -14,7 +14,7 @@ const cards = [
   },
   {
     image: {
-      url: await import("/assets/images/hands.png"),
+      url: new URL("/assets/images/hands.png", import.meta.url).href,
       alt: "Handshake",
     },
     title: "New players welcome",
@@ -22,7 +22,7 @@ const cards = [
   },
   {
     image: {
-      url: await import("/assets/images/hammer.png"),
+      url: new URL("/assets/images/hammer.png", import.meta.url).href,
       alt: "Ban hammer",
     },
     title: "Active moderation",
@@ -30,7 +30,7 @@ const cards = [
   },
   {
     image: {
-      url: await import("/assets/images/na.png"),
+      url: new URL("/assets/images/na.png", import.meta.url).href,
       alt: "North America",
     },
     title: "North America",
@@ -83,7 +83,7 @@ export default function Index() {
               {(card, i) => (
                 <li class={styles.about__item} ref={cardsRefs[i()]}>
                   <div class={styles.about__content}>
-                    <img src={card.image.url.default} alt={card.image.alt} class={styles.about__img} />
+                    <img src={card.image.url} alt={card.image.alt} class={styles.about__img} />
 
                     <h3 class={styles.about__title}>{card.title}</h3>
                     <p class={"main__paragraph"}>{card.text}</p>
