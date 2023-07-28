@@ -7,7 +7,7 @@ import { url } from "../../util";
 const cards = [
   {
     image: {
-      url: url("/assets/images/cube.png"),
+      url: url("/assets/images/cube.png", import.meta.url),
       alt: "Cube",
     },
     title: "Fun SMP-style",
@@ -15,7 +15,7 @@ const cards = [
   },
   {
     image: {
-      url: url("/assets/images/hands.png"),
+      url: url("/assets/images/hands.png", import.meta.url),
       alt: "Handshake",
     },
     title: "New players welcome",
@@ -23,7 +23,7 @@ const cards = [
   },
   {
     image: {
-      url: url("/assets/images/hammer.png"),
+      url: url("/assets/images/hammer.png", import.meta.url),
       alt: "Ban hammer",
     },
     title: "Active moderation",
@@ -31,7 +31,7 @@ const cards = [
   },
   {
     image: {
-      url: url("/assets/images/na.png"),
+      url: url("/assets/images/na.png", import.meta.url),
       alt: "North America",
     },
     title: "North America",

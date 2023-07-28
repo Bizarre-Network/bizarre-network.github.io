@@ -1,3 +1,3 @@
-export function url(path: string): string {
-  return new URL(path, import.meta.url).href;
+export function url(path: string, moduleUrl: string): string {
+  return new URL(path, moduleUrl).href;
 }

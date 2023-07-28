@@ -11,7 +11,7 @@ export default function Hall() {
   const [selectedPerson, setSelectedPerson] = createSignal<string | null>(null);
 
   onMount(async () => {
-    const request = await fetch(url("/data/hall_of_fame.json"));
+    const request = await fetch(url("/data/hall_of_fame.json", import.meta.url));
 
     if (request.ok) {
       setPeople((await request.json()) as HallOfFame);
