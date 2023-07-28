@@ -11,7 +11,7 @@ const root = document.getElementById("root");
 
 render(
   () => (
-    <Router base={configuration.baseUrl}>
+    <Router base={configuration.baseUrl.replace(/^\//g, "")}>
       <App />
     </Router>
   ),

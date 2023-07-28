@@ -2,11 +2,12 @@ import { For, onMount } from "solid-js";
 import styles from "./index.module.css";
 
 import joinBanner from "/assets/images/join_banner.png";
+import { url } from "../../util";
 
 const cards = [
   {
     image: {
-      url: new URL("/assets/images/cube.png", import.meta.url).href,
+      url: url("/assets/images/cube.png"),
       alt: "Cube",
     },
     title: "Fun SMP-style",
@@ -14,7 +15,7 @@ const cards = [
   },
   {
     image: {
-      url: new URL("/assets/images/hands.png", import.meta.url).href,
+      url: url("/assets/images/hands.png"),
       alt: "Handshake",
     },
     title: "New players welcome",
@@ -22,7 +23,7 @@ const cards = [
   },
   {
     image: {
-      url: new URL("/assets/images/hammer.png", import.meta.url).href,
+      url: url("/assets/images/hammer.png"),
       alt: "Ban hammer",
     },
     title: "Active moderation",
@@ -30,7 +31,7 @@ const cards = [
   },
   {
     image: {
-      url: new URL("/assets/images/na.png", import.meta.url).href,
+      url: url("/assets/images/na.png"),
       alt: "North America",
     },
     title: "North America",

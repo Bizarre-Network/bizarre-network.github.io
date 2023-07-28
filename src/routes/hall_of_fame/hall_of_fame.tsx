@@ -1,4 +1,5 @@
 import { HallOfFame } from "../../types";
+import { url } from "../../util";
 
 import styles from "./hall_of_fame.module.css";
 import { For, createSignal, onMount } from "solid-js";
@@ -10,7 +11,7 @@ export default function Hall() {
   const [selectedPerson, setSelectedPerson] = createSignal<string | null>(null);
 
   onMount(async () => {
-    const request = await fetch("/data/hall_of_fame.json");
+    const request = await fetch(url("/data/hall_of_fame.json"));
 
     if (request.ok) {
       setPeople((await request.json()) as HallOfFame);
