@@ -50,6 +50,30 @@
   height: 100%;
   padding: 0 0.75em;
   color: hsl(var(--clr-neutral-900));
+  transition: color 0.2s ease;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.navbar__link:hover {
+  transition: color 0.05s ease;
+}
+
+.navbar__link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background-color: hsl(var(--clr-primary-500));
+  transform: translateY(1px) scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.navbar__link:hover::after {
+  transform: translateY(0px) scaleX(1);
 }
 
 .navbar__button {
@@ -59,6 +83,10 @@
 .navbar__button .navbar__link {
   padding: 0;
   padding-right: 0.5em;
+}
+
+.navbar__button .navbar__link::after {
+  all: initial;
 }
 
 .navbarMobile {
@@ -75,7 +103,7 @@
 
 .navbarMobile__deactivate {
   position: absolute;
-  z-index: 0;
+  z-index: 5;
   right: 0;
   width: 100vw;
   border: none;

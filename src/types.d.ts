@@ -7,3 +7,10 @@ export interface HallOfFameMember {
 }
 
 export type HallOfFame = HallOfFameMember[];
+
+export interface Season {
+  season: number;
+  description: string;
+}
+
+export type Seasons = Season[];

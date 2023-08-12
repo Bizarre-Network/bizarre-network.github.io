@@ -60,7 +60,7 @@
 }
 
 .about :global(.main__paragraph) {
-  margin-inline: auto;
+  margin: 0 auto;
 }
 
 .about__list {

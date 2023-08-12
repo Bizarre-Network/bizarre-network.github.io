@@ -38,7 +38,7 @@ const cards = [
   },
 ];
 
-export default function Index() {
+export default function IndexPage() {
   const cardsRefs = new Array(cards.length).fill(null);
 
   onMount(() => {

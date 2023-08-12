@@ -5,7 +5,7 @@ import { For, createSignal, onMount } from "solid-js";
 
 const FACE_SIZE = 72;
 
-export default function Hall() {
+export default function HallOfFamePage() {
   const [people, setPeople] = createSignal<HallOfFame>([]);
   const [selectedPerson, setSelectedPerson] = createSignal<string | null>(null);
 
@@ -21,10 +21,10 @@ export default function Hall() {
 
   return (
     <>
-      <header class={styles.header}>
-        <div class={styles.header__text}>
-          <span class={styles.header__subtext}>Bizarre Network's</span>
-          <h1 class={styles.header__heading}>Hall of Fame</h1>
+      <header class="header">
+        <div class="header__text">
+          <span class="header__subtext">Bizarre Network's</span>
+          <h1 class="header__heading">Hall of Fame</h1>
         </div>
       </header>
       <main class="main">
