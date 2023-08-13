@@ -9,8 +9,19 @@ export default function SeasonsPage() {
   const [seasonItems, setSeasonItems] = createSignal<HTMLLIElement[]>([]);
   const [seasonJumperItems, setSeasonJumperItems] = createSignal<HTMLLIElement[]>([]);
 
+  let isScrolling: NodeJS.Timeout | null = null;
+
+  function scroll() {
+    if (isScrolling) clearTimeout(isScrolling);
+    isScrolling = setTimeout(() => {
+      setScrolling(false);
+    }, 125);
+  }
+
   onMount(async () => {
     document.querySelector("html")!.classList.add(styles.seasonHtmlScroll);
+
+    window.addEventListener("scroll", scroll, false);
 
     const seasonsRequest = await fetch(new URL("/data/seasons.json", import.meta.url).href);
 
@@ -21,20 +32,10 @@ export default function SeasonsPage() {
     }
   });
 
-  let isScrolling: NodeJS.Timer | null = null;
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (isScrolling) clearTimeout(isScrolling);
-      isScrolling = setTimeout(() => {
-        setScrolling(false);
-      }, 150);
-    },
-    false
-  );
-
   onCleanup(() => {
     document.querySelector("html")!.classList.remove(styles.seasonHtmlScroll);
+    window.removeEventListener("scroll", scroll);
+    if (isScrolling) clearTimeout(isScrolling);
   });
 
   createIntersectionObserver(
