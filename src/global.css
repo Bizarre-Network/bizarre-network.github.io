@@ -128,7 +128,8 @@ a {
   text-shadow: 0 0 6px hsl(var(--clr-neutral-100), 0.5);
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: hsl(var(--clr-primary-600));
 }
 

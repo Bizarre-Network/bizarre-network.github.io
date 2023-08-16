@@ -1,16 +1,16 @@
-import { A, useLocation } from "@solidjs/router";
+import { A, Location } from "@solidjs/router";
 import styles from "./navbar.module.css";
 import { createEffect, createSignal } from "solid-js";
 
 import logo128 from "/assets/images/logo_trans128.png";
 
-export default function Navbar() {
+export default function Navbar({ location }: { location: Location }) {
   const [open, setOpen] = createSignal(false);
-  const location = useLocation();
 
   createEffect(() => {
+    location.pathname;
     setOpen((open) => (open ? !open : open));
-  }, location);
+  });
 
   return (
     <>
@@ -33,7 +33,9 @@ export default function Navbar() {
           </li>
           <li class={`${styles.navbar__item} ${styles.navbar__button}`}>
             <a href="https://discord.gg/bizarresmp" target="_blank" rel="noopener noreferrer" class={styles.navbar__link}>
-              <button class={styles.navbar__btn}>Join</button>
+              <button class={styles.navbar__btn} tabIndex={-1}>
+                Join
+              </button>
             </a>
           </li>
           <button class={styles.navbarMobile__deactivate} onClick={() => setOpen(false)} title="Close sidebar"></button>

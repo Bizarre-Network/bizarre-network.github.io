@@ -27,6 +27,31 @@
   font-weight: 600;
 }
 
+.footer__logo {
+  position: relative;
+  isolation: isolate;
+}
+
+.footer__logo::after {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  bottom: 0.5em;
+  left: 0.5em;
+  z-index: -1;
+  background-color: hsl(var(--clr-primary-400));
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(2em);
+
+  transition: opacity 0.5s ease;
+}
+
+.footer__logo:hover::after {
+  opacity: 1;
+}
+
 .footer__copyright {
   text-align: center;
   margin-top: 1em;

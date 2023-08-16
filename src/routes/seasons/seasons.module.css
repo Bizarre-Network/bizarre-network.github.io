@@ -16,8 +16,8 @@
 }
 
 .seasons__selector {
-  position: sticky;
   position: -webkit-sticky;
+  position: sticky;
   top: calc(var(--navbar-height) + 1em);
   align-self: flex-start;
 }
@@ -47,7 +47,7 @@
   top: 0;
   left: 0;
   bottom: 0;
-  transition: transform 0.25s ease, background-color 0.2s ease;
+  transition: transform 0.25s ease, background-color 0.3s ease;
   transform: scaleY(0);
   transform-origin: bottom;
 }
@@ -66,6 +66,7 @@
   border-bottom: 1px solid hsl(var(--clr-neutral-300));
   margin-bottom: 1em;
   padding-bottom: 1em;
+  min-height: 25svh;
 }
 
 .season__title {

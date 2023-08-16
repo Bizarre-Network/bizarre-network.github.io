@@ -72,7 +72,8 @@
   transition: transform 0.2s ease;
 }
 
-.navbar__link:hover::after {
+.navbar__link:hover::after,
+.navbar__link:focus::after {
   transform: translateY(0px) scaleX(1);
 }
 

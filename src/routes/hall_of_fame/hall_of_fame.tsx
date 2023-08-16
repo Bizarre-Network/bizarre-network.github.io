@@ -14,6 +14,29 @@ export default function HallOfFamePage() {
 
     if (request.ok) {
       setPeople((await request.json()) as HallOfFame);
+
+      setTimeout(() => {
+        if (location.hash) {
+          const name = location.hash.slice(1);
+
+          const element = document.querySelector(location.hash);
+          if (element) {
+            element.scrollIntoView({
+              block: "center",
+            });
+
+            people().some((person) => {
+              if (person.name !== name) return;
+
+              setSelectedPerson(person.uuid);
+
+              return true;
+            });
+          } else {
+            location.hash = "";
+          }
+        }
+      }, 0);
     } else {
       alert("An error occurred fetching hall of fame.");
     }
@@ -29,22 +52,25 @@ export default function HallOfFamePage() {
       </header>
       <main class="main">
         <section class="main__section">
-          <ul class={styles.fameList}>
+          <ul class={`${styles.fameList} ${selectedPerson() != null ? styles.fameListSelected : ""}`}>
             <For each={people()}>
               {(person) => (
                 <li
-                  class={`${styles.fameList__item} ${selectedPerson() != null && selectedPerson() !== person.uuid ? styles.notSelected : ""}`}
+                  class={`${styles.fameList__item} ${selectedPerson() === person.uuid ? styles.fameList__itemSelected : ""}`}
+                  id={person.name}
+                  style={`animation-delay: ${Math.min(200, Math.max(50, Math.random() * 200))}ms`}
                   onMouseEnter={() => setSelectedPerson(person.uuid)}
                   onMouseLeave={() => setSelectedPerson(null)}
                 >
-                  <div class={styles.fameList__background}></div>
+                  <div class={styles.fameList__background} aria-hidden="true"></div>
                   <div class={styles.fameList__content}>
                     <h3 class={styles.fameList__name}>{person.name}</h3>
 
                     <img
                       src={`https://crafatar.com/avatars/${person.uuid}?overlay&size=${FACE_SIZE}`}
                       alt={`${person.name}'s Minecraft face`}
-                      class={styles.fameList__img}
+                      class={`${styles.fameList__img} ${styles.fameList__imgLoading}`}
+                      onLoad={(event) => event.target.classList.remove(styles.fameList__imgLoading)}
                       width={FACE_SIZE}
                       height={FACE_SIZE}
                     />

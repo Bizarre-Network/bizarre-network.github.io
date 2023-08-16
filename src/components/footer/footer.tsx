@@ -8,7 +8,9 @@ export default function Footer() {
       <ul class={styles.footer__links}>
         <li class={styles.footer__item}>
           <a href="/" class={styles.footer__link}>
-            <img src={logo256} alt="Bizarre logo" width={128} height={128} />
+            <div class={styles.footer__logo}>
+              <img src={logo256} alt="Bizarre logo" width={128} height={128} />
+            </div>
           </a>
         </li>
         <li class={styles.footer__item}>

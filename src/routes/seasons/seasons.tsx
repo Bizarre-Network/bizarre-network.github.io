@@ -4,7 +4,7 @@ import styles from "./seasons.module.css";
 import { Seasons } from "../../types";
 
 export default function SeasonsPage() {
-  const [scrolling, setScrolling] = createSignal(false);
+  const [scrolling, setScrolling] = createSignal(true);
   const [seasons, setSeasons] = createSignal<Seasons>([]);
   const [seasonItems, setSeasonItems] = createSignal<HTMLLIElement[]>([]);
   const [seasonJumperItems, setSeasonJumperItems] = createSignal<HTMLLIElement[]>([]);
@@ -13,6 +13,7 @@ export default function SeasonsPage() {
 
   function scroll() {
     if (isScrolling) clearTimeout(isScrolling);
+
     isScrolling = setTimeout(() => {
       setScrolling(false);
     }, 125);
@@ -27,6 +28,17 @@ export default function SeasonsPage() {
 
     if (seasonsRequest.ok) {
       setSeasons(((await seasonsRequest.json()) as Seasons).sort((a, b) => b.season - a.season));
+
+      setTimeout(() => {
+        if (location.hash) {
+          const element = document.querySelector(location.hash);
+          if (element) {
+            element.scrollIntoView();
+          } else {
+            location.hash = "";
+          }
+        }
+      }, 0);
     } else {
       alert("An error occurred fetching season info.");
     }
