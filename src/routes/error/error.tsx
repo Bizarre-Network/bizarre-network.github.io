@@ -2,21 +2,21 @@ import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import { Location } from "@solidjs/router";
 
-import styles from "./error.module.css";
+// import styles from "./error.module.css";
 
-function statusToMessage(status: number, internal: boolean, defaultMsg: string): string {
-  if (internal) {
-    switch (status) {
-      case 404:
-        return "No page with the URL given found.";
-        break;
-      default:
-        return defaultMsg;
-    }
-  } else {
-    return defaultMsg;
-  }
-}
+// function statusToMessage(status: number, internal: boolean, defaultMsg: string): string {
+//   if (internal) {
+//     switch (status) {
+//       case 404:
+//         return "No page with the URL given found.";
+//         break;
+//       default:
+//         return defaultMsg;
+//     }
+//   } else {
+//     return defaultMsg;
+//   }
+// }
 
 export default function ErrorPage({ error, location }: { error: Error; location: Location }) {
   return (
